@@ -5,11 +5,11 @@ class Stopwatch:
         self.__time = time
 
     @property
-    def time(self):
+    def time(self) -> float:
         return float(self.__time)
 
-    def start(self):
+    def start(self) -> None:
         self.__time = time()
     
-    def finish(self):
+    def finish(self) -> None:
         self.__time = time() - self.__time

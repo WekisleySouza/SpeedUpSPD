@@ -25,7 +25,7 @@ class Report:
 
         self.__save_file()
 
-    def __generate_speedup_base():
+    def __generate_speedup_base() -> tuple:
         wb = Workbook()
         ws = wb.active
         ws['A1'] = 'Sequencial / 2 Threads'
@@ -33,13 +33,13 @@ class Report:
         ws['A3'] = 'Sequencial / 8 Threads'
         return wb, ws
 
-    def generate_speedup_report():
+    def generate_speedup_report() -> None:
         # Carregando as médias
         paralell_2_thread_average = load_workbook('./reports/teste_paralelo_2_threads_times.xlsx').active['B2'].value
         paralell_4_thread_average = load_workbook('./reports/teste_paralelo_4_threads_times.xlsx').active['B2'].value
         paralell_8_thread_average = load_workbook('./reports/teste_paralelo_8_threads_times.xlsx').active['B2'].value
         sequencial_average = load_workbook('./reports/teste_sequencial_times.xlsx').active['B2'].value
-        # Escrevendo um novo arquivo com os stopups
+        # Escrevendo um novo arquivo com os speedups
         wb, ws = Report.__generate_speedup_base()
         ws['B1'] = float(sequencial_average) / float(paralell_2_thread_average)
         ws['B2'] = float(sequencial_average) / float(paralell_4_thread_average)

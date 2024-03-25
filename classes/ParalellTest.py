@@ -5,8 +5,8 @@ from classes.Stopwatch import Stopwatch
 from time import sleep
 
 class ParalellTest(Test):
-    def __init__(self, list) -> None:
-        super().__init__(list)
+    def __init__(self, list_of_parts) -> None:
+        super().__init__(list_of_parts)
 
     def organize_times(self) -> None:
         new_times = []
